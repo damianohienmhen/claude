@@ -39,6 +39,12 @@ jobs:
         with:
           fetch-depth: 1
 
+      - name: Setup
+        run: |
+          npm install --legacy-peer-deps
+          npx prisma generate
+          npx prisma migrate dev
+
       - name: Project setup
         run: |
           npm run setup
